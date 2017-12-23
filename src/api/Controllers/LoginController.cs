@@ -3,25 +3,24 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using api.Models;
 
+using api.Interfaces;
+using api.Services;
+
 namespace api.Controllers
 {   
     [Route("api/login")]
     public class LoginController : Controller
-    {
+    {   
+        private readonly IAuthenticationService authenticationService;
+        public LoginController(IAuthenticationService authenticationService){
+            this.authenticationService = authenticationService;
+        }
+
+
         [HttpPost]
-        public IActionResult Post([FromBody]string value)
+        public IActionResult Post([FromBody]User req)
         {
-            var data = new Dictionary<string, string>();
-            data.Add("id", "1");
-            data.Add("name", "nathawat");
-            data.Add("displayname", "uooh");
-
-            User user = new User{
-                Id = 1,
-                Username ="nathawat",
-                Displayname ="uooh"
-            };
-
+            User user = authenticationService.AttempLogin(req.Username, req.Password);
             return  new OkObjectResult(user);
         }
     }
