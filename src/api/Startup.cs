@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 using api.Interfaces;
 using api.Services;
+using api.Models;
 
 namespace api
 {
@@ -26,6 +28,7 @@ namespace api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>( optionsBuilder => optionsBuilder.UseInMemoryDatabase("InMemoryDb") );
             services.AddMvc();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
         }
@@ -36,9 +39,16 @@ namespace api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
+                    dbContext.Users.Add(new User { Username = "nathawat", Password = "1234", Displayname = "uooh" });
+                    dbContext.SaveChanges();
+                }
             }
 
             app.UseMvc();
         }
+
     }
 }
