@@ -1,0 +1,10 @@
+/Users/nathawat/Workspace/dotnet-login/src/api/bin/Debug/netcoreapp2.0/api.deps.json
+/Users/nathawat/Workspace/dotnet-login/src/api/bin/Debug/netcoreapp2.0/api.runtimeconfig.json
+/Users/nathawat/Workspace/dotnet-login/src/api/bin/Debug/netcoreapp2.0/api.runtimeconfig.dev.json
+/Users/nathawat/Workspace/dotnet-login/src/api/bin/Debug/netcoreapp2.0/api.dll
+/Users/nathawat/Workspace/dotnet-login/src/api/bin/Debug/netcoreapp2.0/api.pdb
+/Users/nathawat/Workspace/dotnet-login/src/api/obj/Debug/netcoreapp2.0/api.csproj.CoreCompileInputs.cache
+/Users/nathawat/Workspace/dotnet-login/src/api/obj/Debug/netcoreapp2.0/api.AssemblyInfoInputs.cache
+/Users/nathawat/Workspace/dotnet-login/src/api/obj/Debug/netcoreapp2.0/api.AssemblyInfo.cs
+/Users/nathawat/Workspace/dotnet-login/src/api/obj/Debug/netcoreapp2.0/api.dll
+/Users/nathawat/Workspace/dotnet-login/src/api/obj/Debug/netcoreapp2.0/api.pdb
